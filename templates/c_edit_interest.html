@@ -1,0 +1,25 @@
+{% extends 'c_base.html' %}
+{% load static %}
+
+{% block profile %}
+    <img style="align-content: center; border: 1px solid white; " src="{{ profile.image.url}}" alt="This is profile picture">
+{% endblock %}
+
+{% block profileName %}
+        <h5 style="text-transform: uppercase;">{{profile.name}}</h5>
+{% endblock %}
+
+{% block content %}
+    <h3 style="text-align: center; padding-top: 100px;">This is Edit Interest page</h3> <br> <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_p}}
+        </table>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+{% endblock %}
+
+{% block rightsname %}
+    {{user.username}}
+{% endblock %}

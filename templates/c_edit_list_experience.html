@@ -1,0 +1,43 @@
+{% extends 'c_base.html' %}
+{% load static %}
+
+{% block profile %}
+    <img style="align-content: center; border: 1px solid white; " src="{{ profile.image.url}}" alt="This is profile picture">
+{% endblock %}
+
+{% block profileName %}
+        <h5 style="text-transform: uppercase;">{{profile.name}}</h5>
+{% endblock %}
+
+{% block content %}
+<br><h3 class="text-center">Experience List</h3><br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Designation</th>
+
+
+      </tr>
+    </thead>
+    
+    <tbody>
+    {% for i in experience %}  
+      <tr>
+        <th scope="row">{{forloop.counter}} </th>
+        <td>{{i.company_name}}</td>
+        <td>{{i.designation}}</td>
+        <td><a class="btn btn-warning" href="{% url 'c-edit-experience' i.id %}">Edit</a></td>
+        <td><a class="btn btn-danger" href="{% url 'c-delete-experience' i.id %}">Delete</a></td>    
+      </tr>
+    {% endfor %}  
+    </tbody>
+
+  </table>
+    
+{% endblock %}
+
+{% block rightsname %}
+    {{user.username}}
+{% endblock %}

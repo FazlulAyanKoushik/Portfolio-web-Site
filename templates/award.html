@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block profile %}
+        <img style="align-content: center; border: 1px solid white; " src="{{ profile.image.url}}" alt="This is profile picture">
+{% endblock %}
+
+{% block profileName %}
+        <h5 style="text-transform: uppercase;">{{profile.user.username}}</h5>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/award.css' %}">
+    <div class="award-div">
+        <div class="row">
+            <div class="col-md-6 award">
+                <h2><b>Awards</b></h2>
+                <hr><br>
+                {% for i in award %}
+                    <button class="btn btn-info">{{ i.title }}</button><br>
+                {% endfor %} 
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block contact %}
+        <div class="left-contact">
+                <div class="left-contact-content">
+                    <button style="background-color: rgb(96, 67, 224); padding: 4px; margin-left: 50px;"><a href="{{contact.facebook}}" target="_blank" style="text-decoration: none; font-weight: bold; " >Facebook</a></button>
+                    <button style="background-color: rgb(224, 67, 203); padding: 4px;"><a href="{{contact.instagram}}" target="_blank" style="text-decoration: none; font-weight: bold;">Instagram</a></button>
+                    <button style="background-color: rgb(163, 144, 245); padding: 4px;"><a href="{{contact.linkedin}}" target="_blank" style="text-decoration: none; font-weight: bold;">Linkedin</a></button>
+                    <button style="background-color: rgb(224, 138, 67); padding: 4px;"><a href="{{contact.github}}" target="_blank" style="text-decoration: none; font-weight: bold;">Github</a></button>
+                </div>
+        </div>
+        <div class="right-contact">
+                <div class="right-contact-content">
+                        <p>{{contact.address}}</p>
+                        <p>{{contact.email}}</p>
+                        <p>{{contact.phone_no}}</p>
+                </div>
+        </div>                   
+{% endblock %}
+
+{% block rightsname %}
+    {{profile.user.username}}
+ {% endblock %}

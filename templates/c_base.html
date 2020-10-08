@@ -1,0 +1,76 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/c_style.css' %}">
+    <title>My Portfolio Admin panel</title>
+  </head>
+  <body>
+    <div class="body">
+        <div class="header">
+            <div class="left-header">
+                {% if user.is_authenticated %}
+                    <a style="text-decoration-line: none;" href="c-admin-home"><h4>{{ profile.name}}<span> Admin panel</span></h4></a>
+                {% endif %}    
+            </div>
+            <div class="right-header">
+                <a style="text-decoration-line: none;" href="{% url 'login' %}"><h5>Log out</h5></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="navbar">
+                <div class="nav-top">
+                    {% block profile %}
+                    {% endblock %}
+                </div>
+                <div class="profile-name">
+                    {% block profileName %}
+                    {% endblock %}
+                </div>
+                <div class="navlist">
+                    <ul>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-admin-home' %}">Home</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-profile' %}">Profile</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-about-me' %}">About me</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-education' %}">Education</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-skill' %}">Skills</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-experience' %}">Experience</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-interest' %}">Interest</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-award' %}">Awards</a></li>
+                        <li><a style="text-decoration-line: none;" href="{% url 'c-contact' %}">contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="top">
+                    <div class="m_top">
+                        
+                        {% block content %}
+                        {% endblock %}
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Copyright © All Rights Reserved By 
+                <span style="text-transform: uppercase;">
+                    {% block rightsname %}
+                    {% endblock %}
+                </span></p>        
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+.contact-div{
+    height: 80%;
+    background-color: #fff;
+    display: flex;
+}
+.contact-left{
+    width: 40%;
+    background-color: blanchedalmond;
+}
+.contact-right{
+    width: 60%;
+    background-color: rgb(121, 81, 22);
+}
